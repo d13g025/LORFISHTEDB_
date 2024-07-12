@@ -1,0 +1,15 @@
+#body {
+    background-color: #9c4040;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+    
