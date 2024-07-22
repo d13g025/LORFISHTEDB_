@@ -1,14 +1,12 @@
 <?php
-
 use app\services\Database;
 
 // Inclua o autoload do Composer
 require '../vendor/autoload.php';
+require '../app/services/Database.php';
 
-$search = Database::getInstance();   
-$results = $search->getSearchAll();
-    
-
-echo $results;
+echo 'teste';
 ?>
+
+
 

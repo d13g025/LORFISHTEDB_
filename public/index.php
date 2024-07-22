@@ -20,12 +20,13 @@
     
     require '../app/controllers/HomeController.php';
     require '../app/controllers/SearchController.php';
+    require '../app/controllers/DownloadController.php';
+    require '../app/controllers/TesteController.php';
     require '../app/helpers/Uri.php';
     require '../app/helpers/Request.php';
     require '../vendor/autoload.php';
     require '../routes/Router.php';
     require '../app/controllers/SpeciesController.php';
-    
 
     require_once '../app/views/layouts/navbar.php';
 

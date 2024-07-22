@@ -1,6 +1,3 @@
-<?php
-
-echo '
 <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
     <a class="navbar-brand" href="#">Meu Site</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,13 +9,13 @@ echo '
                 <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/search">Search</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/species">Species</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/download">download</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/Network">Network</a>
@@ -33,9 +30,8 @@ echo '
                 <a class="nav-link" href="/Help">Help</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/Contact">Contact</a>
+                <a class="nav-link" href="/teste">teste</a>
             </li>
         </ul>
     </div>
 </nav>
-';

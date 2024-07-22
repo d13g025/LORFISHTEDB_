@@ -2,12 +2,13 @@
 
 namespace app\controllers;
 
-class HomeController
+class DownloadController
 {
-    public function index()
+    public function download()
     {
         try{
-            require_once __DIR__ . '/../views/home/index.php';
+            require_once __DIR__ . '/../views/download/download.php';
+             
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
@@ -15,3 +16,6 @@ class HomeController
     }
     }
 
+
+
+?>
