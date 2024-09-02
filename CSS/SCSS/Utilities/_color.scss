@@ -1,0 +1,80 @@
+/*COLORS*/
+$C01: #D1DFE0;
+$C02: #B6CFD0;
+$C03: #92B4B5;
+$C04: #7CA5A6;
+$C05: #6A9596;
+$C06: #5A8C8E;
+$C07: #4C7D7F;
+$C08: #407072;
+$C09: #346466;
+$C10: #2D595B;
+$C11: #265052;
+$C12: #204749;
+$C13: #163638;
+$C14: #112C2E;
+$C15: #0A1F20;
+
+/*BASE COLORS*/
+$W01: #FCFEFF;
+$w02: #f3f3f3;
+$B01: #33322B;
+
+/*GRADIENT COLORS*/
+$G01: linear-gradient(45deg, $C04, $C05);
+
+
+/*COLOR CLASSES*/
+.color-c01 {
+    color: $C01;
+}
+.color-c02 {
+    color: $C02;
+}
+.color-c03 {
+    color: $C03;
+}
+.color-c04 {
+    color: $C04;
+}
+.color-c05 {
+    color: $C05;
+}
+.color-c06 {
+    color: $C06;
+}
+.color-c07 {
+    color: $C07;
+}
+.color-c08 {
+    color: $C08;
+}
+.color-c09 {
+    color: $C09;
+}
+.color-c10 {
+    color: $C10;
+}
+.color-c11 {
+    color: $C11;
+}
+.color-c12 {
+    color: $C12;
+}
+.color-c13 {
+    color: $C13;
+}
+.color-c14 {
+    color: $C14;
+}
+.color-c15 {
+    color: $C15;
+}
+
+/*Base color classes*/
+.color-w01 {
+    color: $W01;
+}
+.color-b01 {
+    color: $B01;
+}
