@@ -1,0 +1,17 @@
+{
+    "name": "yuki/php",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Diego",
+            "email": "diegoaraujo939@gmail.com"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap": "5.3.3"
+    }
+}
