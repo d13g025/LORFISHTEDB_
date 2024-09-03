@@ -1,0 +1,60 @@
+Table -> analyses
+atributes:
+    id_analyses,
+    fk_genome_id,
+    fk_chromossome_id_chromossome,
+    fk_order_wicker_id_order,
+    fk_class_wicker_id_class,
+    fk_superfamily_wicker_id_superfamily
+
+Table -> chromossome
+    id_chromossome,
+    chromossome_name
+
+Table -> class_wicker
+    id_class,
+    class_name
+
+Table -> order_wicker
+    id_order
+    order_name
+
+Table -> family
+    id_family,
+    family_name
+
+Table -> superfamily_wicker
+    id_superfamily
+    superfamily_name
+
+Table -> specie_fish
+    id_genome
+    scientific_name_fish
+    genome_fish_ncbi
+    fk_family_id_family
+
+Table -> genome
+    id
+    te_name
+    sequenciamento
+    fk_specie_fish_id_genome
+    start_sequence
+    end_sequence
+    strand
+
+---------------
+*****VIEW******
+
+Table -> analysis_info
+    id_analyses
+    scientific_name_fish
+    te_name
+    chromossome_name
+    superfamily_name
+    order_name
+
+Table -> fish_data_view 
+    scientific_name_fish
+    id_genome
+    genome_fish_ncbi
+    family_name

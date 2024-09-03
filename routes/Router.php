@@ -8,12 +8,13 @@ use app\helpers\Uri;
 class Router
 {
     const CONTROLLER_NAMESPACE = 'app\\controllers';
+    public static $pageTitle = '';
 
     public static function load(string $controller, string $method, array $params = [])
     {
         try {
             $controllerNamespace = self::CONTROLLER_NAMESPACE . '\\' . $controller;
-            
+
             if (!class_exists($controllerNamespace)) {
                 throw new \Exception('Controller não encontrado');
             }
@@ -34,29 +35,13 @@ class Router
     {
         return [
             'GET' => [
-                '/' => fn() => self::load('HomeController', 'index'),
-                '/search' => fn() => self::load('SearchController', 'search'),
-                '/download' => fn() => self::load('DownloadController', 'download'),
-                '/teste' => fn() => self::load('TesteController', 'teste', ['param1' => 'valor1', 'param2' => 'valor2']),
-                '/species' => function () {
-                    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                    self::load('SpeciesController', 'species', ['page' => $page]);
-                },
+                '/' => ['action' => fn() => self::load('HomeController', 'index'), 'title' => 'Home'],
+                '/home' => ['action' => fn() => self::load('HomeController', 'index'), 'title' => 'Home'],
+                '/search' => ['action' => fn() => self::load('SearchController', 'search'), 'title' => 'Search'],
+                '/statistics' => ['action' => fn() => self::load('StatisticsController', 'statistics'), 'title' => 'Statistics'],
+                '/team' => ['action' => fn() => self::load('TeamController', 'team'), 'title' => 'Team'],
             ],
-            'POST' => [
-                '/result' => function () {
-                    $param1 = null;
-
-                    if (isset($_POST['btn_gff'])) {
-                        $param1 = $_POST['btn_gff'];
-                    } elseif (isset($_POST['btn_fasta'])) {
-                        $param1 = $_POST['btn_fasta'];
-                    }
-
-                    self::load('TesteController', 'result', ['param1' => $param1]);
-                },
-            ],
-                ];
+        ];
     }
 
     public static function execute()
@@ -74,11 +59,16 @@ class Router
                 throw new \Exception('404 - Rota não encontrada');
             }
 
-            $router = $routes[$request][$uri];
+            $router = $routes[$request][$uri]['action'];
+            self::$pageTitle = $routes[$request][$uri]['title']; // Define o título da página
             $router();
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }
     }
+
+    public static function getPageTitle()
+    {
+        return self::$pageTitle;
+    }
 }
-?>

@@ -20,6 +20,7 @@ class Database
         }
     }
 
+    //instancia da classe Database
     public static function getInstance()
     {
         if (self::$instance == null) {
@@ -28,46 +29,47 @@ class Database
         return self::$instance;
     }
 
+    // Método para obter a conexão com o banco de dados
     public function getConnection()
     {
         return $this->connection;
     }
 
+    // Método para listar todos os peixes
     public function getSearchAll()
     {
         $db = $this->getConnection();
-        $stmt = $db->query('SELECT DISTINCT scientific_name FROM analysis_info');
+        $stmt = $db->query('SELECT scientific_name_fish FROM fish_data_view');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     }
 
+    // Métodos para retornar todos dos dados do peixe X
     public function getSearch($data)
     {
         $db = $this->getConnection();
-        $stmt = $db->prepare('SELECT * FROM analysis_info WHERE scientific_name ILIKE :data');
+        $stmt = $db->prepare('SELECT * FROM analysis_info WHERE scientific_name_fish ILIKE :data');
         $stmt->bindParam(':data', $data, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    // Métodos para contar os dados de SF peixe X
     public function countSearchSF($data)
     {
         $db = $this->getConnection();
-        $stmt = $db->prepare('SELECT superfamily_name, count(*) FROM analysis_info WHERE scientific_name ILIKE :data GROUP BY superfamily_name');
+        $stmt = $db->prepare('SELECT superfamily_name, count(*) FROM analysis_info WHERE scientific_name_fish ILIKE :data GROUP BY superfamily_name');
         $stmt->bindParam(':data', $data, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll();
     }
 
+    // Métodos para contar os dados de Order peixe X
     public function countSearchOrder($data)
     {
         $db = $this->getConnection();
-        $stmt = $db->prepare('SELECT order_name, count(*) FROM analysis_info WHERE scientific_name ILIKE :data GROUP BY superfamily_name');
+        $stmt = $db->prepare('SELECT order_name, count(*) FROM analysis_info WHERE scientific_name_fish ILIKE :data GROUP BY order_name');
         $stmt->bindParam(':data', $data, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll();
     }
-
-
 }
-

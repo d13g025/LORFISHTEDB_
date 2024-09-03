@@ -2,12 +2,12 @@
 
 namespace app\controllers;
 
-class SearchController
+class TeamController
 {
-    public function search()
+    public function team()
     {
         try {
-            require_once __DIR__ . '/../views/search/search.php';
+            require_once __DIR__ . '/../views/team/team.php';
         } catch (\Throwable $th) {
             echo $th->getMessage();
         }

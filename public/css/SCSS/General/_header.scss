@@ -1,0 +1,36 @@
+header ul {
+   flex-wrap: wrap;
+   justify-content: center;
+   background-color: $W01;
+//    border-top: 2px dotted $C01;
+//    border-bottom: 2px dotted $C01;
+//    margin: $margin-xs 0 $margin-xs 0;
+   box-shadow: $box-shadow-s;
+   margin-bottom: $margin-s;
+   
+}
+
+
+.nav-list-item a {
+    padding: $padding-m $padding-b;
+}
+
+.nav-list-item a:hover {
+    color: $C02;
+}
+
+.active-page {
+    text-decoration: underline wavy;  
+}
+
+
+.page-main-title {
+    width: 100%;
+    background-color: $C05;
+    text-align: center;
+    padding: $padding-m 0;
+    color: $W01;
+    box-shadow: $box-shadow-s;
+}
+
+
