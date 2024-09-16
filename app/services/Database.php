@@ -39,7 +39,7 @@ class Database
     public function getSearchAll()
     {
         $db = $this->getConnection();
-        $stmt = $db->query('SELECT scientific_name_fish FROM fish_data_view');
+        $stmt = $db->query('SELECT * FROM fish_data_view');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

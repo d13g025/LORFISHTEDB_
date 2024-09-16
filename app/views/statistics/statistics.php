@@ -94,10 +94,21 @@ if (isset($_GET['fish']) && !empty($_GET['fish'])) {
     <header>
         <nav aria-label="navigation-menu">
             <ul class="nav-list flexbox">
-                <li class="nav-list-item"><a class="font-m-ru color-c05" href="./home">Home</a></li>
-                <li class="nav-list-item"><a class="font-m-ru color-c05" href="./search">Search</a></li>
-                <li class="nav-list-item"><a class="active-page font-m-ru color-c05" href="./statistics">Statistics</a></li>
-                <li class="nav-list-item"><a class="font-m-ru color-c05" href="./team">Team</a></li>
+                <li class="nav-list-item">
+                    <a class="font-m-ru color-c05" href="./home">Home</a>
+                </li>
+                <li class="nav-list-item">
+                    <a class="font-m-ru color-c05" href="/search">Search</a>
+                </li>
+                <li class="nav-list-item">
+                    <a class="font-m-ru color-c05" href="./download">Download</a>
+                </li>
+                <li class="nav-list-item">
+                    <a class="active-page font-m-ru color-c05" href="./statistics">Statistics</a>
+                </li>
+                <li class="nav-list-item">
+                    <a class="font-m-ru color-c05" href="./team">Team</a>
+                </li>
             </ul>
         </nav>
         <div class="page-main-title font-m-r">

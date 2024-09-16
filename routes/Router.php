@@ -37,10 +37,14 @@ class Router
             'GET' => [
                 '/' => ['action' => fn() => self::load('HomeController', 'index'), 'title' => 'Home'],
                 '/home' => ['action' => fn() => self::load('HomeController', 'index'), 'title' => 'Home'],
-                '/search' => ['action' => fn() => self::load('SearchController', 'search'), 'title' => 'Search'],
+                '/download' => ['action' => fn() => self::load('DownloadController', 'download'), 'title' => 'Download'],
                 '/statistics' => ['action' => fn() => self::load('StatisticsController', 'statistics'), 'title' => 'Statistics'],
                 '/team' => ['action' => fn() => self::load('TeamController', 'team'), 'title' => 'Team'],
+                '/search' => ['action' => fn() => self::load('SearchController', 'search'), 'title' => 'Search'],
             ],
+            'POST' => [
+                '/search' => ['action' => fn() => self::load('SearchController', 'search'), 'title' => 'Search'],
+            ]
         ];
     }
 

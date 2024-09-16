@@ -30,6 +30,9 @@ Router::execute();
                     <a class="font-m-ru color-c05" href="/search">Search</a>
                 </li>
                 <li class="nav-list-item">
+                    <a class="font-m-ru color-c05" href="/download">Download</a>
+                </li>
+                <li class="nav-list-item">
                     <a class="font-m-ru color-c05" href="/statistics">Statistics</a>
                 </li>
                 <li class="nav-list-item">

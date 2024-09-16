@@ -1,13 +1,13 @@
 <?php
 
-use app\routes\Router;
 use app\services\Database;
+use app\routes\Router;
 
-// Obtenha todos os dados do banco de dados.
+Router::execute();
+
+// Recupera os dados para o select
 $searchAll = Database::getInstance()->getSearchAll();
 
-// Executa o roteamento.
-Router::execute();
 
 ?>
 
@@ -17,7 +17,7 @@ Router::execute();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo Router::getPageTitle(); ?></title>
+    <title> <?php echo Router::getPageTitle(); ?> </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -25,75 +25,57 @@ Router::execute();
 </head>
 
 <body>
-    <header>
-        <nav aria-label="navigation-menu">
-            <ul class="nav-list flexbox">
-                <li class="nav-list-item">
-                    <a class="font-m-ru color-c05" href="./home">Home</a>
-                </li>
-                <li class="nav-list-item">
-                    <a class="active-page font-m-ru color-c05" href="./search">Search</a>
-                </li>
-                <li class="nav-list-item">
-                    <a class="font-m-ru color-c05" href="./statistics">Statistics</a>
-                </li>
-                <li class="nav-list-item">
-                    <a class="font-m-ru color-c05" href="./team">Team</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="page-main-title font-m-r">
-            <h1>SEARCH</h1>
-        </div>
-    </header>
 
-    <form action="" class="search-form">
-        <search class="grid">
-            <div class="grid">
-                <img src="./IMG/Busca.svg">
-                <input type="name" autofocus placeholder="Type your search here.">
+    <div>
+        <form action="/search" method="POST">
+            <div style="margin-top: 50px;">
+                <input type="radio" name="search_type" value="scientific_name" id="" checked>Peixe
+                <select name="scientific_name[]" size="4" style="width:200px" multiple="multiple">
+                    <?php foreach ($searchAll as $search) : ?>
+                        <option value="<?php echo $search['scientific_name_fish']; ?>"><?php echo $search['scientific_name_fish']; ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
-            <button class="font-m-bu button">Search</button>
-        </search>
-        <fieldset class="search-fieldset">
-            <legend>Search Filters</legend>
-            <ul class="grid">
-                <li>
-                    <input class="search-radio" id="class_radio" type="radio" value="class" name="filter">
-                    <label class="search-radio-label" for="class_radio">Class</label>
-                </li>
-                <li>
-                    <input class="search-radio" id="order_radio" type="radio" value="order" name="filter">
-                    <label class="search-radio-label" for="order_radio">Order</label>
-                </li>
-                <li>
-                    <input class="search-radio" id="family_radio" type="radio" value="family" name="filter">
-                    <label class="search-radio-label" for="family_radio">Family</label>
-                </li>
-                <li>
-                    <input class="search-radio" id="specie_radio" type="radio" value="specie" name="filter">
-                    <label class="search-radio-label" for="specie_radio">Species</label>
-                </li>
-            </ul>
-        </fieldset>
-    </form>
 
-    <main class="search-main grid">
-        <?php if (!empty($searchAll)) : ?>
-            <?php foreach ($searchAll as $fish) : ?>
-                <div class="grid" aria-label="fish specie">
-                    <h4 class="font-b-mic color-c08"><?php echo $fish['scientific_name_fish']; ?></h4>
-                    <ul class="grid">
-                        <li><a class="button font-m-m" href="#">FASTA</a></li>
-                        <li><a class="button font-m-m" href="#">GFF</a></li>
-                        <li><a class="button font-m-m" href="statistics">Statistics</a></li>
-                    </ul>
-                </div>
-            <?php endforeach; ?>
-        <?php else : ?>
-            <p>No fish species found.</p>
-        <?php endif; ?>
-    </main>
+            <div style="margin-top: 50px;">
+                <input type="radio" name="search_type" value="family_name">Familia_Peixe
+                <select name="family_name[]" size="4" style="width:200px" multiple="multiple">
+                    <?php foreach ($searchAll as $search) : ?>
+                        <option value="<?php echo $search['family_name']; ?>"><?php echo $search['family_name']; ?></option>
+                    <?php endforeach; ?>
+
+            </div>
+
+            <input type="submit" value="Enviar">
+        </form>
+
+    </div>
+
+
+
+
+
+    <div>
+        <?php
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $searchType = $_POST['search_type'];
+
+            if ($searchType == 'scientific_name') {
+                // Obtém os valores do select para scientific_name
+                $scientific_names = isset($_POST['scientific_name']) ? $_POST['scientific_name'] : [];
+                echo "Scientific Names: " . implode(', ', $scientific_names);
+            } elseif ($searchType == 'family_name') {
+                // Obtém os valores do select para family_name
+                $family_names = isset($_POST['family_name']) ? $_POST['family_name'] : [];
+                echo "Family Names: " . implode(', ', $family_names);
+            } else {
+                echo "Search Type: " . $searchType;
+            }
+        }
+
+
+        ?>
+    </div>
 </body>
 
 </html>

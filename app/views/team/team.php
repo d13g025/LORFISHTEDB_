@@ -26,7 +26,7 @@ Router::execute();
                     <a class="font-m-ru color-c05" href="./home">Home</a>
                 </li>
                 <li class="nav-list-item">
-                    <a class="font-m-ru color-c05" href="./search">Search</a>
+                    <a class="font-m-ru color-c05" href="./download">Download</a>
                 </li>
                 <li class="nav-list-item">
                     <a class="font-m-ru color-c05" href="./statistics">Statistics</a>
