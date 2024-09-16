@@ -64,6 +64,12 @@ $searchAll = Database::getInstance()->getSearchAll();
                 // Obtém os valores do select para scientific_name
                 $scientific_names = isset($_POST['scientific_name']) ? $_POST['scientific_name'] : [];
                 echo "Scientific Names: " . implode(', ', $scientific_names);
+
+                $result = Database::getInstance()->getSearch($scientific_names);
+
+                echo "<pre>";
+                echo print_r($result);
+                echo "</pre>";
             } elseif ($searchType == 'family_name') {
                 // Obtém os valores do select para family_name
                 $family_names = isset($_POST['family_name']) ? $_POST['family_name'] : [];

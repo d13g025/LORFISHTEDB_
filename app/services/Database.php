@@ -47,9 +47,21 @@ class Database
     public function getSearch($data)
     {
         $db = $this->getConnection();
-        $stmt = $db->prepare('SELECT * FROM analysis_info WHERE scientific_name_fish ILIKE :data');
-        $stmt->bindParam(':data', $data, PDO::PARAM_STR);
-        $stmt->execute();
+
+        // Verifica se $data é um array, caso contrário transforma em um array
+        if (!is_array($data)) {
+            $data = [$data];
+        }
+
+        // Cria uma lista de placeholders para a query
+        $placeholders = implode(',', array_fill(0, count($data), '?'));
+
+        // Monta a query com IN
+        $stmt = $db->prepare("SELECT * FROM analysis_info WHERE scientific_name_fish IN ($placeholders)");
+
+        // Executa a query com os valores do array
+        $stmt->execute($data);
+
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
