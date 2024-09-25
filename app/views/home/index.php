@@ -23,20 +23,23 @@ Router::execute();
     <header>
         <nav aria-label="navigation-menu">
             <ul class="nav-list flexbox">
-                <li class="nav-list-item">
-                    <a class="active-page font-m-ru color-c05" href="/home">Home</a>
+                <li class="nav-list-item" id="header-logo-title">
+                    <a class="color-c05" href="/home" id="logotipo-header">LORFISH</a>
                 </li>
                 <li class="nav-list-item">
-                    <a class="font-m-ru color-c05" href="/search">Search</a>
+                    <a class="active-page font-m-ru color-c05" href="/home"><span class="nav-link font-m-ru color-w01">Home</span></a>
                 </li>
                 <li class="nav-list-item">
-                    <a class="font-m-ru color-c05" href="/download">Download</a>
+                    <a class="font-m-ru color-w01" href="/search"><span class="nav-link font-m-ru color-w01">Search</span></a>
                 </li>
                 <li class="nav-list-item">
-                    <a class="font-m-ru color-c05" href="/statistics">Statistics</a>
+                    <a class="font-m-ru color-w01" href="/results"><span class="nav-link font-m-ru color-w01">Results</span></a>
                 </li>
                 <li class="nav-list-item">
-                    <a class="font-m-ru color-c05" href="/team">Team</a>
+                    <a class="font-m-ru color-w01" href="/statistics"><span class="nav-link font-m-ru color-w01">Statistics</span></a>
+                </li>
+                <li class="nav-list-item">
+                    <a class="font-m-ru color-w01" href="/team"><span class="nav-link font-m-ru color-w01">Team</span></a>
                 </li>
             </ul>
         </nav>

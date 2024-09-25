@@ -1,9 +1,28 @@
 .button {
     display: block;
-    background: $G01;
-    color: $W01;
+    background: $G02;
+    color: $C03;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
     padding: $padding-s $padding-m;
     border: none;
     border-radius: $border-radius;
-    box-shadow: $box-shadow-m;
+    box-shadow: $box-shadow-b;
+    border-radius: $border-radius-rounded;
+}
+
+.button:hover {
+    background: $G03;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.label {
+    border-radius: 30px;
+}
+
+.input {
+    border: none;
+    background-color: $w02;
+    box-shadow: $box-shadow-s;
 }

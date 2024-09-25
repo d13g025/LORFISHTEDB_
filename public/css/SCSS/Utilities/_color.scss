@@ -1,19 +1,19 @@
 /*COLORS*/
-$C01: #D1DFE0;
-$C02: #B6CFD0;
-$C03: #92B4B5;
-$C04: #7CA5A6;
-$C05: #6A9596;
-$C06: #5A8C8E;
-$C07: #4C7D7F;
-$C08: #407072;
-$C09: #346466;
-$C10: #2D595B;
-$C11: #265052;
-$C12: #204749;
-$C13: #163638;
-$C14: #112C2E;
-$C15: #0A1F20;
+$C01: #6DA8DB;
+$C02: #4B86B9;
+$C03: #346A98;
+$C04: #2A5D88;
+$C05: #163F62;
+// $C06: #5A8C8E;
+// $C07: #4C7D7F;
+// $C08: #407072;
+// $C09: #346466;
+// $C10: #2D595B;
+// $C11: #265052;
+// $C12: #204749;
+// $C13: #163638;
+// $C14: #112C2E;
+// $C15: #0A1F20;
 
 /*BASE COLORS*/
 $W01: #FCFEFF;
@@ -22,6 +22,8 @@ $B01: #33322B;
 
 /*GRADIENT COLORS*/
 $G01: linear-gradient(45deg, $C04, $C05);
+$G02: linear-gradient(45deg, #A5EDEE, #71C2C5);
+$G03: linear-gradient(45deg, #b8f2f4, #8ed2d4);
 
 
 /*COLOR CLASSES*/
@@ -40,36 +42,36 @@ $G01: linear-gradient(45deg, $C04, $C05);
 .color-c05 {
     color: $C05;
 }
-.color-c06 {
-    color: $C06;
-}
-.color-c07 {
-    color: $C07;
-}
-.color-c08 {
-    color: $C08;
-}
-.color-c09 {
-    color: $C09;
-}
-.color-c10 {
-    color: $C10;
-}
-.color-c11 {
-    color: $C11;
-}
-.color-c12 {
-    color: $C12;
-}
-.color-c13 {
-    color: $C13;
-}
-.color-c14 {
-    color: $C14;
-}
-.color-c15 {
-    color: $C15;
-}
+// .color-c06 {
+//     color: $C06;
+// }
+// .color-c07 {
+//     color: $C07;
+// }
+// .color-c08 {
+//     color: $C08;
+// }
+// .color-c09 {
+//     color: $C09;
+// }
+// .color-c10 {
+//     color: $C10;
+// }
+// .color-c11 {
+//     color: $C11;
+// }
+// .color-c12 {
+//     color: $C12;
+// }
+// .color-c13 {
+//     color: $C13;
+// }
+// .color-c14 {
+//     color: $C14;
+// }
+// .color-c15 {
+//     color: $C15;
+// }
 
 /*Base color classes*/
 .color-w01 {

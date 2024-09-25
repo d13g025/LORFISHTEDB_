@@ -1,36 +1,54 @@
 header ul {
-   flex-wrap: wrap;
-   justify-content: center;
-   background-color: $W01;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: $C03;
 //    border-top: 2px dotted $C01;
 //    border-bottom: 2px dotted $C01;
 //    margin: $margin-xs 0 $margin-xs 0;
-   box-shadow: $box-shadow-s;
-   margin-bottom: $margin-s;
-   
+    box-shadow: $box-shadow-s;
+    margin-bottom: $margin-s;
+    box-shadow: $box-shadow-l;
 }
+
 
 
 .nav-list-item a {
     padding: $padding-m $padding-b;
 }
 
-.nav-list-item a:hover {
-    color: $C02;
+.nav-link {
+    font-size: $font-size-b;
+    font-weight: $font-weight-medium;
+}
+
+.nav-link:hover {
+    text-shadow: 1px 0px 1px white;
+    transition: .15s;
 }
 
 .active-page {
-    text-decoration: underline wavy;  
+    text-decoration: underline;
+    color: white;  
+}
+
+#header-logo-title a {
+    font-family: $font-family-2;
+    letter-spacing: 0.25rem;
+    font-size: $font-size-xxl;
+    font-weight: $font-weight-bold;
+    background-color: $W01;
+    box-shadow: $box-shadow-b;
 }
 
 
 .page-main-title {
     width: 100%;
-    background-color: $C05;
+    background-color: transparent;
     text-align: center;
     padding: $padding-m 0;
-    color: $W01;
-    box-shadow: $box-shadow-s;
+    border-top: 4px solid $C05;
+    border-bottom: 4px solid $C05;
 }
 
 

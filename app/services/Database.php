@@ -39,7 +39,31 @@ class Database
     public function getSearchAll()
     {
         $db = $this->getConnection();
-        $stmt = $db->query('SELECT * FROM fish_data_view');
+        $stmt = $db->query('SELECT scientific_name_fish FROM specie_fish');
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Metodos para retornar as SF cadastradas
+    public function getSuperfamily()
+    {
+        $db = $this->getConnection();
+        $stmt = $db->query('SELECT superfamily_name FROM superfamily_wicker');
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Metodo para retornar as Ordens cadastradas
+    public function getOrder()
+    {
+        $db = $this->getConnection();
+        $stmt = $db->query('SELECT order_name FROM order_wicker');
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Metodo para retornar as Classes cadastradas
+    public function getClass()
+    {
+        $db = $this->getConnection();
+        $stmt = $db->query('SELECT class_name FROM class_wicker');
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

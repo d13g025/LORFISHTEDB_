@@ -2,6 +2,8 @@
 
     use app\routes\Router;
 
+    require_once '../vendor/autoload.php';
+
     require '../app/controllers/HomeController.php';
     require '../app/controllers/DownloadController.php';
     require '../app/controllers/StatisticsController.php';

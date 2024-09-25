@@ -2,7 +2,6 @@
 @import "./Utilities/color";
 @import "./Utilities/typography";
 @import "./Utilities/layout";
-@import "./Utilities/responsiveness";
 @import "./Utilities/components";
 
 /* GENERAL CONFIGURATIONS*/
@@ -13,5 +12,6 @@
 
 /* PAGES */
 @import "./Pages/home";
+@import "./Pages/results";
 @import "./Pages/search";
 @import "./Pages/team";

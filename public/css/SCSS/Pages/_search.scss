@@ -1,120 +1,24 @@
-
-/* FORM */
-.search-form {
-    margin: $margin-s $margin-l;
-}
-
-.search-form search {
-    grid-template-columns: 5fr 1fr;
-    gap: $gap-s;
-    padding: $padding-s 0;
-}
-
-.search-form search div {
-    grid-template-columns: auto 1fr;
-    box-shadow: $box-shadow-s;
-    border-radius: $border-radius;
-}
-.search-form search input, .search-fieldset {
-    border: none;
-}
-
-.search-form search input {
-    box-sizing: border-box;
-    background-color: transparent;
-    outline: none;
-    color: $C05;
-}
-
-
-.search-form div {
-    padding: $margin-s;
-}
-
-.search-fieldset legend {
-    display: none;
-}
-
-.search-fieldset ul {
-    grid-template-columns: auto auto auto auto;
-    justify-content: left;
-    gap: $gap-b;
-}
-
-/*Radio buttons*/
-.search-radio {
-    display: none;
-}
-
-.search-radio-label::before {
-    display: inline-block;
-    content: '';
-    background-color: $W01;
-    height: 9px;
-    width: 9px;
-    border: 1.8px solid $C10;
-    margin-right: $margin-s;
-    border-radius: 15px;
-}
-
-.search-radio[type="radio"]:checked + .search-radio-label {
-    color:$C08;
-}
-
-.search-radio[type="radio"]:checked + .search-radio-label::before {
-    background: radial-gradient(6px circle at center, currentColor 50%, transparent 55%);
-}
-
-.search-radio-label {
-    color: $C08;
-}
-
-/*Button*/
-.search-form search .button {
-    border-radius: $border-radius;
-}
-
-
-/* MAIN */
+/**/
 
 .search-main {
-    margin: $margin-l $margin-xl;
-    grid-template-columns: 1fr 1fr;
-    gap: $gap-m;
 }
-.search-main div {
-    width: max-content;
-    grid-template-columns: auto auto;
-    align-items: center;
+
+.search-main-container {
+    margin-top: $margin-b;
+    grid-template-columns: repeat(4, auto);
+    gap: $gap-b;
     justify-content: center;
-    gap: $gap-xs;
 }
 
-.search-main h4 {
-    display: block;
-    box-shadow: $box-shadow-s;
-    padding: $padding-s $padding-m;
-    border-radius: $border-radius 0 0 $border-radius;
-    width: max-content;
+.search-main .button {
+    padding: $padding-m $padding-l;
+    margin: $margin-l auto;
 }
 
-.search-main ul {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: $gap-xs;
-}
 
-.search-main  li:nth-child(1) a, .search-main  li:nth-child(2) a{
-    border-radius: 0;
-}
-
-.search-main  li:nth-child(3) a {
-    border-radius: 0 $border-radius $border-radius 0;
-}
 
 @media (max-width: 1000px) {
-    .search-main {
+    .search-main-container {
         grid-template-columns: auto;
-        align-items: center;
-        justify-content: center;
     }
 }
