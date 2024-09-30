@@ -12,4 +12,13 @@ class SearchController
             echo $th->getMessage();
         }
     }
+
+    public function searchResult()
+    {
+        try {
+            require_once __DIR__ . '/../views/search/search.php';
+        } catch (\Throwable $th) {
+            echo $th->getMessage();
+        }
+    }
 }

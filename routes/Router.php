@@ -43,7 +43,7 @@ class Router
                 '/search' => ['action' => fn() => self::load('SearchController', 'search'), 'title' => 'Search'],
             ],
             'POST' => [
-                '/search' => ['action' => fn() => self::load('SearchController', 'search'), 'title' => 'Search'],
+                '/search' => ['action' => fn() => self::load('SearchController', 'searchResult'), 'title' => 'Search'],
             ]
         ];
     }

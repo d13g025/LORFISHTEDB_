@@ -67,45 +67,23 @@ class Database
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Métodos para retornar todos dos dados do peixe X
-    public function getSearch($data)
+    // Metodo para criar a Table em Search
+    public function createTable($name_fish, $filter, $value)
     {
         $db = $this->getConnection();
 
-        // Verifica se $data é um array, caso contrário transforma em um array
-        if (!is_array($data)) {
-            $data = [$data];
+        if ($filter == 'class') {
+            $stmt = $db->prepare("SELECT * FROM analysis_info WHERE class_name = :value AND scientific_name_fish = :name_fish");
+        } elseif ($filter == 'order') {
+            $stmt = $db->prepare("SELECT * FROM analysis_info WHERE order_name = :value AND scientific_name_fish = :name_fish");
+        } elseif ($filter == 'superfamily') {
+            $stmt = $db->prepare("SELECT * FROM analysis_info WHERE superfamily_name = :value AND scientific_name_fish = :name_fish");
         }
 
-        // Cria uma lista de placeholders para a query
-        $placeholders = implode(',', array_fill(0, count($data), '?'));
-
-        // Monta a query com IN
-        $stmt = $db->prepare("SELECT * FROM analysis_info WHERE scientific_name_fish IN ($placeholders)");
-
-        // Executa a query com os valores do array
-        $stmt->execute($data);
+        $stmt->bindParam(':name_fish', $name_fish);
+        $stmt->bindParam(':value', $value);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    // Métodos para contar os dados de SF peixe X
-    public function countSearchSF($data)
-    {
-        $db = $this->getConnection();
-        $stmt = $db->prepare('SELECT superfamily_name, count(*) FROM analysis_info WHERE scientific_name_fish ILIKE :data GROUP BY superfamily_name');
-        $stmt->bindParam(':data', $data, PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
-
-    // Métodos para contar os dados de Order peixe X
-    public function countSearchOrder($data)
-    {
-        $db = $this->getConnection();
-        $stmt = $db->prepare('SELECT order_name, count(*) FROM analysis_info WHERE scientific_name_fish ILIKE :data GROUP BY order_name');
-        $stmt->bindParam(':data', $data, PDO::PARAM_STR);
-        $stmt->execute();
-        return $stmt->fetchAll();
     }
 }
